@@ -11,8 +11,7 @@ const Projects = ({openModal,setOpenModal}) => {
     <Container id="projects">
       <Wrapper>
         <Title>Projects</Title>
-        <Desc>
-          I have worked on a wide range of projects. From web apps to android apps. Here are some of my projects.
+        <Desc>My portfolio spans various projects, from machine learning and web applications to Android app development. <br/>Here are some highlights 👇
         </Desc>
         <ToggleButtonGroup >
           {toggle === 'all' ?
@@ -45,7 +44,7 @@ const Projects = ({openModal,setOpenModal}) => {
               <ProjectCard project={project} openModal={openModal} setOpenModal={setOpenModal}/>
             ))}
           {projects
-            .filter((item) => item.category == toggle)
+            .filter((item) => item.category === toggle)
             .map((project) => (
               <ProjectCard project={project} openModal={openModal} setOpenModal={setOpenModal}/>
             ))}

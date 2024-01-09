@@ -92,7 +92,7 @@ const Body = styled.div`
 `
 
 
-const Role = styled.div`
+const Name = styled.div`
     font-size: 18px;
     font-weight: 600;
     color: ${({ theme }) => theme.text_primary + 99};
@@ -144,29 +144,29 @@ const Skill = styled.div`
 
 
 
-const ExperienceCard = ({ experience }) => {
+const CertificateCard = ({ certificate }) => {
     return (
         <Card>
             <Top>
-                <Image src={experience.img} />
+                <Image src={certificate.img} />
                 <Body>
-                    <Role>{experience.role}</Role>
-                    <Company>{experience.company}</Company>
-                    <Date>{experience.date}</Date>
+                    <Name>{certificate.name}</Name>
+                    <Company>{certificate.company}</Company>
+                    <Date>Issued on - {certificate.date}</Date>
                 </Body>
             </Top>
             <Description>
-                {experience?.desc &&
-                    <Span>{experience?.desc}</Span>
+                {certificate?.certID &&
+                    <Span> Certificate ID :  {certificate?.certID}</Span>
 
                 }
-                {experience?.skills &&
+                {certificate?.skills &&
                     <>
                         <br />
                         <Skills>
-                            <b>Skills Used:</b>
+                            <b>Skills Gained:</b>
                             <ItemWrapper>
-                                {experience?.skills?.map((skill, index) => (
+                                {certificate?.skills?.map((skill, index) => (
                                     <Skill>{skill}</Skill>
                                 ))}
                             </ItemWrapper>
@@ -174,13 +174,13 @@ const ExperienceCard = ({ experience }) => {
                     </>
                 }
             </Description>
-            {experience.doc &&
-                <a href={experience.doc} target="new">
-                    <Document src={experience.doc} />
+            {certificate.doc &&
+                <a href={certificate.doc} target="new">
+                    <Document src={certificate.doc} />
                 </a>
             }
         </Card>
     )
 }
 
-export default ExperienceCard
+export default CertificateCard
